@@ -1,3 +1,11 @@
+<script>
+const inIframe = () => window.self !== window.top;
+if (inIframe !== true) {
+  window.stop();
+}
+</script>
+
 <h1> hello </h1>
 <p> test paragraph </p>
-<iframe src="https://83lcb1g9.chat.qbusiness.us-east-1.on.aws/#/chat" title="Chat"></iframe>
+
+
