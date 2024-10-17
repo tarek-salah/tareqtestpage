@@ -1,7 +1,7 @@
 <script>
 const inIframe = () => window.self !== window.top;
-console.log(inIframe);
-if (inIframe !== true) {
+console.log(inIframe());
+if (inIframe() !== true) {
   window.stop();
 }
 </script>
