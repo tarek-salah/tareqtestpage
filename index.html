@@ -1,4 +1,36 @@
-<h1> hello </h1>
-<p> test paragraph </p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cognito Social Login Demo</title>
+</head>
+<body>
+    <h1>Social Login Demo</h1>
+    
+    <div id="loginButtons">
+        <!-- Social login buttons -->
+        <button onclick="signInWithSocial('Google')">Sign in with Google</button>
+        <button onclick="signInWithSocial('Facebook')">Sign in with Facebook</button>
+        <button onclick="signInWithSocial('LoginWithAmazon')">Sign in with Amazon</button>
+        <button onclick="signInWithSocial('SignInWithApple')">Sign in with Apple</button>
+    </div>
 
+    <script>
+        // Configuration variables
+        const cognitoDomain = 'mydomain.auth.us-east-1.amazoncognito.com';
+        const clientId = 'YOUR_CLIENT_ID';
+        const redirectUri = 'https://www.example.com'; // Your callback URL
 
+        function signInWithSocial(provider) {
+            // Construct the authorization URL with the identity provider parameter
+            const authUrl = `https://${cognitoDomain}/oauth2/authorize?` +
+                `identity_provider=${provider}&` +
+                `response_type=code&` +
+                `client_id=${clientId}&` +
+                `redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+            // Redirect to the authorization URL
+            window.location.href = authUrl;
+        }
+    </script>
+</body>
+</html>
